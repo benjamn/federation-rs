@@ -1,0 +1,4 @@
+[submodule "federation-2/router-bridge/federation"]
+	path = federation-2/router-bridge/federation
+	url = https://github.com/benjamn/federation.git
+	branch = spike
