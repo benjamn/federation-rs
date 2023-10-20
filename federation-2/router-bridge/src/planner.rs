@@ -673,6 +673,7 @@ impl Default for QueryPlannerConfig {
         Self {
             incremental_delivery: Some(IncrementalDeliverySupport {
                 enable_defer: Some(false),
+                enable_stream: Some(false),
             }),
             graphql_validation: true,
             reuse_query_fragments: None,
@@ -691,6 +692,14 @@ pub struct IncrementalDeliverySupport {
     /// Defaults to false (meaning that the @defer are ignored).
     #[serde(default)]
     pub enable_defer: Option<bool>,
+
+    /// Enables @stream support by the query planner.
+    ///
+    /// If set, then the query plan for queries having some @stream will contains some `StreamNode` (see `QueryPlan.ts`).
+    ///
+    /// Defaults to false (meaning that the @stream are ignored).
+    #[serde(default)]
+    pub enable_stream: Option<bool>,
 }
 
 #[cfg(test)]
